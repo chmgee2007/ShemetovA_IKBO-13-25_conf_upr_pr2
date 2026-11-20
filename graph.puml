@@ -1,0 +1,8 @@
+@startuml
+skinparam packageStyle rectangle
+"A" --> "B"
+"A" --> "C"
+"C" --> "D"
+package "D" {}
+"B" --> "D"
+@enduml
