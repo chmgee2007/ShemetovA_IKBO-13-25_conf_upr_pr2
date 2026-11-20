@@ -4,7 +4,6 @@ import os
 
 
 def load_config(filepath):
-    """Загружает конфигурацию из JSON-файла."""
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             return json.load(f)
@@ -17,19 +16,16 @@ def load_config(filepath):
 
 
 def validate_config(config):
-    """Проверяет наличие и корректность всех параметров."""
     required_keys = [
         "package_name", "repo_url", "test_mode",
         "version", "max_depth", "filter_substring"
     ]
 
-    # 1. Проверка на наличие всех ключей
     for key in required_keys:
         if key not in config:
             print(f"Ошибка конфигурации: отсутствует параметр '{key}'.")
             sys.exit(1)
 
-    # 2. Проверка типов и значений
     if not isinstance(config["package_name"], str) or not config["package_name"]:
         print("Ошибка: 'package_name' должно быть непустой строкой.")
         sys.exit(1)
@@ -52,10 +48,7 @@ def validate_config(config):
 
 
 def main():
-    """Основная функция приложения."""
-    # Находим путь к папке, где лежит main.py (папка src)
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    # Поднимаемся на уровень выше и ищем config.json в корне проекта
     config_path = os.path.join(current_dir, "..", "config.json")
 
     print("Загрузка конфигурации...")
