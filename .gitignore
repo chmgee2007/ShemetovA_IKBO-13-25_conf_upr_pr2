@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Артефакты сборки
+build/
+dist/
+*.spec
+
+# Редакторы
+.vscode/
+.idea/
+*.swp
+
+# Результаты
+*.png
+*.dot
